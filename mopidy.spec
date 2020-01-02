@@ -9,7 +9,7 @@ Summary:        An extensible music server written in Python
 License:        ASL 2.0
 URL:            https://mopidy.com/
 Source0:        %{pypi_source}
-Source1:        fedora.conf
+Source1:        mopidy.conf
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
@@ -30,8 +30,6 @@ Requires:       python3-tornado
 Requires:       python3-Pykka >= 2.0.1
 Requires:       python3-requests
 Requires(pre):  shadow-utils
-# XXX: can i recommend rpmfusion packages?
-Recommends:     gstreamer1-plugins-ugly
 Suggests:       mopidy-mpd
 
 %description
@@ -65,8 +63,7 @@ install -p -D extra/mopidyctl/mopidyctl %{buildroot}%{_sbindir}/mopidyctl
 install -p -D -m 0644 docs/_build/man/mopidy.1 %{buildroot}%{_mandir}/man1/%{name}.1
 install -p -D -m 0644 extra/mopidyctl/mopidyctl.8 %{buildroot}%{_mandir}/man8/mopidyctl.8
 install -p -D -m 0644 extra/systemd/mopidy.service %{buildroot}%{_unitdir}/%{name}.service
-# XXX: is fedora.conf a good name for distro-config?
-install -p -D -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/%{name}/conf.d/fedora.conf
+install -p -D -m 0644 %{SOURCE1} %{buildroot}%{_datadir}/%{name}/conf.d/mopidy.conf
 
 %check
 %{__python3} setup.py test
