@@ -87,9 +87,9 @@ exit 0
 %files
 %license LICENSE
 %doc README.rst docs/_build/html
-# Note: this directory needs to be writable by the mopidy service
+# Note: these directories needs to be writable by the mopidy service
 %attr(-,%name,%name) %dir %{_var}/cache/%{name}
-%ghost               %dir %{homedir}
+%attr(-,%name,%name) %dir %{homedir}
                      %dir %{_sysconfdir}/%{name}
                      %dir %{_datadir}/%{name}
                      %dir %{_datadir}/%{name}/conf.d
