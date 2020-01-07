@@ -100,9 +100,9 @@ exit 0
 %{_bindir}/%{name}
 %{_sbindir}/mopidyctl
 %{_unitdir}/%{name}.service
-%{_mandir}/man1/%{name}.1.gz
-%{_mandir}/man8/mopidyctl.8.gz
-%{_datadir}/%{name}/conf.d/fedora.conf
+%{_mandir}/man1/%{name}.1.*
+%{_mandir}/man8/mopidyctl.8.*
+%{_datadir}/%{name}/conf.d/mopidy.conf
 
 
 %changelog
