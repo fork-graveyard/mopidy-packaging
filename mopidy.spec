@@ -14,7 +14,6 @@ Source1:        mopidy.conf
 BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-sphinx
 BuildRequires:  python3-graphviz
 BuildRequires:  python3-tornado
 BuildRequires:  python3-Pykka >= 2.0.1
@@ -36,6 +35,15 @@ Suggests:       mopidy-mpd
 Mopidy plays music from local disk, and a plethora of streaming services and
 sources. You edit the playlist from any phone, tablet, or computer using a
 variety of MPD and web clients.
+
+%package doc
+BuildRequires:  python3-sphinx
+BuildRequires:  python3-sphinx_rtd_theme
+Summary:        Documentation for Mopidy
+BuildArch:      noarch
+
+%description doc
+Documentation for Mopidy, an extensible music server written in Python
 
 
 %prep
@@ -86,7 +94,7 @@ exit 0
 
 %files
 %license LICENSE
-%doc README.rst docs/_build/html
+%doc README.rst
 # Note: these directories needs to be writable by the mopidy service
 %attr(-,%name,%name) %dir %{_var}/cache/%{name}
 %attr(-,%name,%name) %dir %{homedir}
@@ -103,6 +111,9 @@ exit 0
 %{_mandir}/man1/%{name}.1.*
 %{_mandir}/man8/mopidyctl.8.*
 %{_datadir}/%{name}/conf.d/mopidy.conf
+
+%files doc
+%doc docs/_build/html
 
 
 %changelog
