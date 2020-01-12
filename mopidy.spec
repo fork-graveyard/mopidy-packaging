@@ -43,7 +43,7 @@ Summary:        Documentation for Mopidy
 BuildArch:      noarch
 
 %description doc
-Documentation for Mopidy, an extensible music server written in Python
+Documentation for Mopidy, an extensible music server written in Python.
 
 
 %prep
